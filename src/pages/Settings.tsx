@@ -24,25 +24,24 @@ const Settings: React.FC = () => {
   return (
     <Layout activeSection="settings">
       <div className="space-y-6">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-800">Settings</h1>
-          <p className="text-gray-600 mt-1">Configure your application preferences</p>
+        <div className="flex justify-between items-center">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-800">Settings</h1>
+            <p className="text-gray-600 mt-1">Configure your application preferences</p>
+          </div>
+          <Button 
+            variant="destructive" 
+            className="flex items-center gap-2" 
+            onClick={handleLogout}
+          >
+            <LogOut size={18} />
+            Logout
+          </Button>
         </div>
         
         <div className="glass-card p-8 min-h-[300px] flex flex-col">
           <div className="flex-grow text-center flex items-center justify-center">
             <p className="text-gray-600">Settings section is under development.</p>
-          </div>
-          
-          <div className="mt-10">
-            <Button 
-              variant="destructive" 
-              className="flex items-center gap-2" 
-              onClick={handleLogout}
-            >
-              <LogOut size={18} />
-              Logout
-            </Button>
           </div>
         </div>
       </div>
