@@ -75,7 +75,7 @@ const Login = () => {
       <div className="w-full max-w-md animate-fade-in">
         <div className="mb-8 text-center">
           <LoginLogo />
-          <h1 className="mt-4 text-2xl font-bold text-gray-900 dark:text-white">Skawsh Admin Panel</h1>
+          <h1 className="mt-4 text-2xl font-bold text-gray-900 dark:text-white">Welcome to Admin Panel</h1>
           <p className="text-gray-600 dark:text-gray-400">Login to access your dashboard</p>
         </div>
         
@@ -182,9 +182,6 @@ const Login = () => {
           </CardContent>
           
           <CardFooter className="flex justify-center border-t px-6 py-4">
-            <p className="text-xs text-gray-600 dark:text-gray-400">
-              Protected by industry standard encryption
-            </p>
           </CardFooter>
         </Card>
       </div>
