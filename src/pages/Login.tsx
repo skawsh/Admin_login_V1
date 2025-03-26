@@ -8,29 +8,24 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { useToast } from "@/components/ui/use-toast";
 import { LoginLogo } from "@/components/login/LoginLogo";
 import { useAuth } from "@/hooks/useAuth";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 
-// Login form schema
 const loginFormSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email address" }),
   password: z.string().min(8, { message: "Password must be at least 8 characters" }),
   rememberMe: z.boolean().optional(),
 });
 
-// Mobile form schema
 const mobileFormSchema = z.object({
   mobile: z.string().min(10, { message: "Please enter a valid mobile number" }),
 });
 
-// OTP form schema
 const otpFormSchema = z.object({
   otp: z.string().length(4, { message: "OTP must be 4 digits" }),
 });
 
-// Reset password form schema
 const resetPasswordFormSchema = z.object({
   password: z.string().min(8, { message: "Password must be at least 8 characters" }),
   confirmPassword: z.string().min(8, { message: "Password must be at least 8 characters" }),
@@ -55,7 +50,6 @@ const Login = () => {
   const [mobile, setMobile] = useState('');
   const [countdown, setCountdown] = useState(0);
   const navigate = useNavigate();
-  const { toast } = useToast();
   const { login } = useAuth();
 
   const loginForm = useForm<LoginFormValues>({
@@ -96,25 +90,9 @@ const Login = () => {
       const success = await login(data.email, data.password);
       
       if (success) {
-        toast({
-          title: "Login successful",
-          description: "Welcome to Skawsh Admin Panel",
-        });
-        
         navigate("/");
-      } else {
-        toast({
-          variant: "destructive",
-          title: "Login failed",
-          description: "Invalid email or password",
-        });
-      }
+      } 
     } catch (error) {
-      toast({
-        variant: "destructive",
-        title: "Login error",
-        description: "An error occurred during login",
-      });
       console.error("Login error:", error);
     } finally {
       setIsLoading(false);
@@ -130,12 +108,7 @@ const Login = () => {
     setMobile(data.mobile);
     setIsLoading(true);
     
-    // Simulate API call to send OTP
     setTimeout(() => {
-      toast({
-        title: "OTP Sent",
-        description: `A 4-digit OTP has been sent to ${data.mobile}`,
-      });
       setIsLoading(false);
       setResetStep('otp');
       startCountdown();
@@ -158,12 +131,7 @@ const Login = () => {
   const handleResendOTP = () => {
     if (countdown === 0) {
       setIsLoading(true);
-      // Simulate API call to resend OTP
       setTimeout(() => {
-        toast({
-          title: "OTP Resent",
-          description: `A new 4-digit OTP has been sent to ${mobile}`,
-        });
         setIsLoading(false);
         startCountdown();
       }, 1500);
@@ -173,13 +141,7 @@ const Login = () => {
   const handleOtpSubmit = (data: OtpFormValues) => {
     setIsLoading(true);
     
-    // Simulate API call to verify OTP
     setTimeout(() => {
-      // For demo purposes, any OTP is valid
-      toast({
-        title: "OTP Verified",
-        description: "Please set your new password",
-      });
       setIsLoading(false);
       setResetStep('reset');
     }, 1500);
@@ -188,12 +150,7 @@ const Login = () => {
   const handleResetPasswordSubmit = (data: ResetPasswordFormValues) => {
     setIsLoading(true);
     
-    // Simulate API call to reset password
     setTimeout(() => {
-      toast({
-        title: "Password Reset Successful",
-        description: "Your password has been reset successfully. Please login with your new password.",
-      });
       setIsLoading(false);
       setResetStep('login');
       loginForm.reset();
