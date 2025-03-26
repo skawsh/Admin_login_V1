@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -76,7 +77,6 @@ const Login = () => {
         <div className="mb-8 text-center">
           <LoginLogo />
           <h1 className="mt-4 text-2xl font-bold text-gray-900 dark:text-white">Welcome to Admin Panel</h1>
-          <p className="text-gray-600 dark:text-gray-400">Login to access your dashboard</p>
         </div>
         
         <Card className="backdrop-blur-sm bg-white/90 dark:bg-gray-950/70 border-gray-200 dark:border-gray-800 shadow-xl">
