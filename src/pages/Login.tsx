@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -334,7 +333,6 @@ const Login = () => {
                 </Button>
                 <div>
                   <CardTitle>Reset Password</CardTitle>
-                  <CardDescription>Enter your mobile number to receive a verification code</CardDescription>
                 </div>
               </div>
             </CardHeader>
