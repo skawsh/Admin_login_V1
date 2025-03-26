@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,7 +10,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
 import { LoginLogo } from "@/components/login/LoginLogo";
-import { ThemeToggle } from "@/components/login/ThemeToggle";
 import { useAuth } from "@/hooks/useAuth";
 
 const formSchema = z.object({
@@ -74,10 +72,6 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 p-4">
-      <div className="absolute top-4 right-4">
-        <ThemeToggle />
-      </div>
-      
       <div className="w-full max-w-md animate-fade-in">
         <div className="mb-8 text-center">
           <LoginLogo />
