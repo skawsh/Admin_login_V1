@@ -48,8 +48,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       // In a real app, this would be an API call to verify credentials
       await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulate API call
 
-      // For demo purposes
-      if (email === "admin@skawsh.com" && password === "password123") {
+      // Updated credentials
+      if (email === "saitejasamala@skawsh.com" && password === "Skawsh@123") {
         const userData = {
           email,
           role: "admin" as const,
